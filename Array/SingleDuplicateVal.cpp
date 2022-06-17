@@ -10,6 +10,7 @@ int findDuplicate(vector<int> &arr)
     for(int i = 0 ; i< arr.size(); i++){
         ans = ans^i;        
     }
+    
         return ans;
 }
 int main(){
