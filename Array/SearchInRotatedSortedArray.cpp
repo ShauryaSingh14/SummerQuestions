@@ -13,31 +13,29 @@ int findPosition(vector<int>& arr, int n, int k)
         else
             e = mid;
     }  
-    int st1 = 0;
-    int st2 = s;
-    int en1 = s-1;
-    int en2 = n-1;
-    
-    while(st1 <= en1){
-        int mid = st1 + (en1 - st1)/2;
-        if(arr[mid]==k)
-            return mid;
-        else if (arr[mid]<k)
-            st1 = mid +1;
-        else 
-            en1 = mid -1;
+    int st;
+    int en;
+    if(arr[s] <= k && arr[n-1] >= k){
+       st = s;
+       en = n-1;
     }
-    while(st2 <=en2){
-        int mid = st2 + (en2 - st2)/2;
+    else{
+       st = 0;
+       en = s-1;
+    }    
+    while(st <= en){
+        int mid = st + (en - st)/2;
         if(arr[mid]==k)
             return mid;
         else if (arr[mid]<k)
-            st2 = mid +1;
+            st = mid +1;
         else 
-            en2 = mid -1;
+            en = mid -1;
     }
     return -1; 
 }
+
+
 int main(){
     return 0;
 }
