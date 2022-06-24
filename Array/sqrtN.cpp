@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-// NOT All testcases passes.
 int sqrtN(long long int N)
 {
     long long int s = 0;
-    long long int e = N;
+    unsigned int e = N;
     int ans;
     while(s<=e){
         int mid = s + (e-s)/2;
