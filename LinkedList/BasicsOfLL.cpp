@@ -51,13 +51,52 @@ void printLL(Node * head){
         cout << head->data << " -> ";
         head = head->next;
     }
+    cout << endl;
+}
+void deletionFromHead(Node *&head){
+    Node * temp = head;
+    head = head->next;
+    delete(temp);
+}
+void deletionfromEnd(Node *&head){
+    Node * curr = head;
+    while(head->next->next)
+        head = head ->next;
+    delete(head->next);
+    head->next = NULL;
+}
+void deleteFromMiddle(Node *&head){
+    Node * curr = head;
+    Node * middle = findMiddle(head);
+    while(curr->next != middle)
+        curr = curr->next;
+    curr->next = curr->next->next;
+    delete(middle);    
+}
+
+void sortLL(Node *& head){
+    Node * curr = head;
+    
+    for(Node * i = head; i ; i= i->next){
+        for(Node * j = i->next ; j ; j=j->next){
+            if(j->data<i->data){
+                int temp = i->data;
+                i->data = j->data;
+                j->data = temp;
+            }
+        }
+    }
 }
 int main(){
     Node * head = new Node(1);
-    head->next = new Node(2);
+    head->next = new Node(4);
     head->next->next = new Node(3);
-    // head->next->next->next = new Node (4);
+    head->next->next->next = new Node (2);
     insertAtMiddle(head,10);
-    printLL(head);-
+    printLL(head);
+    deleteFromMiddle(head);
+    printLL(head);
+    sortLL(head);
+    printLL(head);
     return 0;
 }
