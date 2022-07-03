@@ -1,1 +1,2 @@
-head->next->next->next = new Node (4);
+}
+    // else{

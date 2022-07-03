@@ -16,7 +16,7 @@ void printSLL(Node * head){
     cout << endl;
 }
 void RevserseLL(Node *& head){
-    if(!head || !head->next)
+    if( !head || !head->next)
     return ;
     else{
         Node * curr = head;
