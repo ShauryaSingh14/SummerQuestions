@@ -1,5 +1,5 @@
-// Online C++ compiler to run C++ program online
 #include <iostream>
+#include <queue>
 using namespace std;
 struct Node{
     int key ;
@@ -29,11 +29,28 @@ void printKthDis(Node * root, int k){
 }
 void levelOrder(Node * root){
     int h = height(root);
-    int k = 0;  //Time : O(n*h)
+    int k = 0;  //Time : O(n + n*h)
     while(h != -1){
         printKthDis(root,k);
         k++;
         h--;
+    }
+}
+void levelOrderII(Node * root){
+    if(!root)
+    return ;
+    queue <Node*> q; 
+    q.push(root);
+    while(!q.empty()){
+        Node * curr = q.front();
+        q.pop();
+        cout << curr->key << " ";
+        
+        if(!curr->left)
+        q.push(curr->left);
+        
+        if(!curr->right)
+        q.push(curr->right);
     }
 }
 int main() {
@@ -44,7 +61,8 @@ int main() {
     root->left->right = new Node(50);
     root->right->right = new Node(60);
     root->left->right->left = new Node(70);
-    levelOrder(root);
+    levelOrder(root); // O(n * h)
+    levelOrderII(root); // T theta( n )
 
     return 0;
 }
