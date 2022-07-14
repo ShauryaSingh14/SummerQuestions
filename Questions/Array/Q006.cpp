@@ -1,35 +1,71 @@
 #include <iostream>
+#include <set>
 using namespace std;
 
-int union(int arr2[],int n1, int arr2[],int n2){
+ // } Driver Code Ends
+//User function template in C++
+
+class Solution{
+    public:
+    //Function to return the count of number of elements in union of two arrays.
+int doUnion(int arr1[], int n1, int arr2[], int n2){
+sort(arr1,arr1+n1);
+sort(arr2,arr2+n2);
     int ptr1 =0;
     int ptr2 =0;
-    int i=0;
-    int *arr = new int[n1+n2];
+    set <int> arr; 
     while(ptr1<n1 && ptr2<n2){
-        if(arr1[ptr1]<=arr2[ptr2]){
-            arr[i]=arr1[ptr1];
+        if(arr1[ptr1]<arr2[ptr2]){
+            arr.insert(arr1[ptr1]);
             ptr1++;
         }
-        else {
-             arr[i]=arr2[ptr2];
+        else if(arr1[ptr1]==arr2[ptr2]){
+            arr.insert(arr1[ptr1]);
+            ptr1++;
             ptr2++;
         }
-        i++;
+        else {
+             arr.insert(arr2[ptr2]);
+            ptr2++;
+        }
     }
-    return arr;
+    while(ptr1 < n1){
+        arr.insert(arr1[ptr1]);
+            ptr1++;
+        
+    }
+    while(ptr2 < n2){
+        
+        arr.insert(arr2[ptr2]);
+            ptr2++;
+    }
+    return arr.size();
 }
-void printArray(int arr[], int size)
-{
-   for (int i = 0; i < size; i++)
-   cout << arr[i] << " ";
- 
-   cout << endl;
-}
-int main()
-{
-    int arr[] = { -1, 2, -3, 4, 5, 6, -7, 8, 9 };
-    int n = sizeof(arr) / sizeof(arr[0]);
-    printArray(arr, n);
-    return 0;
-}
+};
+
+// 
+// { Driver Code Starts.
+
+int main() {
+	
+	int t;
+	cin >> t;
+	
+	while(t--){
+	    
+	    int n, m;
+	    cin >> n >> m;
+	    int a[n], b[m];
+	   
+	    for(int i = 0;i<n;i++)
+	       cin >> a[i];
+	       
+	    for(int i = 0;i<m;i++)
+	       cin >> b[i];
+	    Solution ob;
+	    cout << ob.doUnion(a, n, b, m) << endl;
+	    
+	}
+	
+	return 0;
+}  // } Driver Code Ends
