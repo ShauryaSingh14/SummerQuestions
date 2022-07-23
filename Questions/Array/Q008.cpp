@@ -6,7 +6,7 @@ class Solution{
     // n: size of array
     //Function to find the sum of contiguous subarray with maximum sum.
     long long maxSubarraySum(int arr[], int n){
-        long long int sum = 0;
+    long long int sum = 0;
     long long int maxSum = arr[0];
     for(int i =0 ; i< n ;i++){
         

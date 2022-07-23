@@ -1,5 +1,6 @@
 #include <iostream>
 #include <set>
+#include <vector>
 using namespace std;
 
  // } Driver Code Ends
@@ -42,6 +43,17 @@ sort(arr2,arr2+n2);
     return arr.size();
 }
 };
+
+int unionFunII(vector <int> a , vector <int> b){
+    set <int> arr;
+    for(int i = 0 ; i< a.size();i++){
+        arr.insert(a[i]);
+    }
+    for(int i = 0 ; i< b.size();i++){
+        arr.insert(b[i]);
+    }
+    return arr.size();
+}
 
 // 
 // { Driver Code Starts.

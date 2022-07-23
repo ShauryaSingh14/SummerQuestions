@@ -79,7 +79,7 @@ void sortLL(Node *& head){
     
     for(Node * i = head; i ; i= i->next){
         for(Node * j = i->next ; j ; j=j->next){
-            if(j->data<i->data){
+            if(j->data < i->data){
                 int temp = i->data;
                 i->data = j->data;
                 j->data = temp;
