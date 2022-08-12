@@ -61,9 +61,7 @@ int main() {
    
    root = buildTree(root);
    cout << endl;
-   levelOrderTrans(root);
-   cout << endl;
-   
+
    inOrder(root);
    cout << endl;
    
