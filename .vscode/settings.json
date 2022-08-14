@@ -3,6 +3,7 @@
         "vector": "cpp",
         "iosfwd": "cpp",
         "iterator": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "utility": "cpp"
     }
 }
