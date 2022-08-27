@@ -1,8 +1,12 @@
-//{ Driver Code Starts
-/* program to construct tree using inorder and postorder traversals */
 #include <bits/stdc++.h>
 using namespace std;
-
+void funint(int fun){
+    while(fun){
+        fun= fun->right;
+        fun->data= fun->data;
+    }
+    return  fun;
+}
 /* A binary tree node has data, pointer to left child
    and a pointer to right child */
 struct Node {
