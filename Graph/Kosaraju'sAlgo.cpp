@@ -21,7 +21,7 @@ void printGraph(vector<int> adj[],int V){
     }
 }
 
-void dfsRec(int node,vector<int> adj[],vector<int> visited,
+void dfsRec(int node,vector<int> adj[],vector<bool> visited,
             stack<int> st){
     visited[node]=true;
     for(auto nbr : adj[node]){
@@ -35,6 +35,7 @@ void dfsRec(int node,vector<int> adj[],vector<int> visited,
 int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
 {
     vector<int> adj[];
+
 	for(int i =0 ; i<edges.size();i++){
         int u =edges[i][0];
         int v = edges[i][1];
@@ -52,6 +53,7 @@ int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
     }
     
     vector <int> transpose[];
+
     for(int i =0 ; i< v;i++){
         for(auto nbr : i){
             transpose[nbr].push_back(i);
@@ -66,7 +68,7 @@ int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
         st.pop();
         if(!visited[top]){
             count++;
-            resDfs(top,vis,transpose);
+            // resDfs(top,vis,transpose);
         }
     }
     return count;
