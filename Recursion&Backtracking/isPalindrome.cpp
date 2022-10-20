@@ -4,7 +4,7 @@ using namespace std;
 bool checkPalindrome(string a , int i , int n){
     if( i >= n)
     return true;
-    return a[i] == a[n] && checkPalindrome(a,i+1,n-1);
+    return (a[i] == a[n]) && (checkPalindrome(a,i+1,n-1));
 }
 int main() {
     string s ="jsshihssj";

@@ -7,7 +7,8 @@ void subSets(string s, string curr , int idx){
     {
         cout << curr << " ";
         return;
-    }subSets(s,curr,idx+1);
+    }
+    subSets(s,curr,idx+1);
     subSets(s,curr + s[idx],idx+1);
 }
 int main() {
