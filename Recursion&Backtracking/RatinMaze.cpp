@@ -15,13 +15,15 @@ class Solution{
                vector<vector<bool>> &vis){
        
         if(x == n-1 && y == n-1 && m[x][y]){
+            
             ans.push_back(str);
             return;
         }
         
-        for(int i = 0 ; i<4 ;i++){
-            if( i == 0 && x >= 0 && x < n &&  y >=0 && y < n
+        if( x >= 0 && x < n &&  y >=0 && y < n
                 && !vis[x][y] && m[x][y] ){
+        for(int i = 0 ; i<4 ;i++){
+            if( i == 0){
                 str.push_back('R');
                 vis[x][y]=1;
                 solve(m,n,x,y+1,ans,str,vis);
@@ -29,8 +31,7 @@ class Solution{
                 str.pop_back();   
                 }
             
-            if (i == 1 && x >= 0 && x < n &&  y >=0 && y < n 
-                && !vis[x][y] && m[x][y]){
+            if (i == 1){
                 str.push_back('U');
                 vis[x][y]=1;
                 solve(m,n,x-1,y,ans,str,vis);
@@ -38,8 +39,7 @@ class Solution{
                 str.pop_back();   
                 
             }
-            if(i == 2 && x >= 0 && x < n &&  y >=0 && y < n
-                && !vis[x][y] && m[x][y]){
+            if(i == 2 ){
                 str.push_back('D');
                 vis[x][y]=1;
                 solve(m,n,x+1,y,ans,str,vis);
@@ -47,8 +47,7 @@ class Solution{
                 str.pop_back();   
                 
             }
-            if(i == 3 && x >= 0 && x < n &&  y >=0 && y < n
-                && !vis[x][y] && m[x][y]){
+            if(i == 3){
                 str.push_back('L');
                 vis[x][y]=1;
                 solve(m,n,x,y-1,ans,str,vis);
@@ -56,14 +55,14 @@ class Solution{
                 str.pop_back();   
                 
             }
-            
+        }
         }
     }
     vector<string> findPath(vector<vector<int>> &m, int n) {
         // Your code goes here
         vector<vector<bool>> vis(n,vector<bool> (n, 0));
         vector<string> res;
-        string s;
+        string s="";
         int x = 0,y =0;
         solve(m,n,x,y,res,s,vis);
         return res;
