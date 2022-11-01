@@ -40,7 +40,7 @@ Node * buildTree(Node * root){
 }
 class Solution{
     public:
-    int height(struct Node* node){
+    int height(struct Node* node){ // using Recursion
         if(!node )
         return 0;
         
@@ -49,7 +49,38 @@ class Solution{
         int res = max(left,right) +1;
         return res;
     }
+
+    int heightII(Node * root){ // Using Level Order Travseral
+
+    queue<Node*> q;
+    q.push(root);
+    q.push(NULL);
+
+    int heightl = 0;
+    while(!q.empty()){
+        Node * temp = q.front();
+        q.pop();
+
+        if(!temp){
+            if(!q.empty()){
+                q.push(NULL);
+                heightl++;
+            }
+
+        }
+        else{
+        if(temp->left){
+            q.push(temp->left);
+        }
+        if(temp->right){
+            q.push(temp->right);
+        }
+        }
+    }
+    return heightl;
+}
 };
+
 
 //{ Driver Code Starts.
 int main()
