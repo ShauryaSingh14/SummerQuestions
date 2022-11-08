@@ -1,6 +1,7 @@
 // Online C++ compiler to run C++ program online
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 void subSets(string s, string curr , int idx){
     if( idx == s.length())
