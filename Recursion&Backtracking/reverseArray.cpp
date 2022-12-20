@@ -1,14 +1,14 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-bool checkP(string s,int l, int r){
+bool checkPalindrome(string s,int l, int r){
     if(l>r)
     return true;
 
     if(s[l]!=s[r])
     return false;
 
-    return checkP(s,l+1,r-1);
+    return checkPalindrome(s,l+1,r-1);
 }
 void reverse(int arr[],int n,int l){
     if(l<n){

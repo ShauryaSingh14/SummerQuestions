@@ -7,13 +7,19 @@ int SumofNnums(int n){
     return n + SumofNnums(n-1);
 }
 int SumofNnumsTailRec(int n,int res){
-    if(n== 0)
+    if(n== 0){
     return res;
-    SumofNnumsTailRec(n-1, res + n);
+    }
+    return SumofNnumsTailRec(n-1, res + n);
+}
+int sumofNFormula(int n){
+    return n*(n+1)/2;
 }
 int main() {
     cout << SumofNnums(5);
     cout << endl;
     cout << SumofNnumsTailRec(5,0);
+    cout << endl;
+    cout << sumofNFormula(5);
     return 0;
 }
