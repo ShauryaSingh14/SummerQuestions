@@ -2,6 +2,11 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+// Subsequence :- a continuous/ non continuous sequence that follow certain order.
+// Example, [1,2,3] 
+// continuous '1','2','3','1,2','2,1','1,2,3'
+// non-continuous - '1','2','3','1,2','2,1','1,3','1,2,3'
+
 void subSeq(vector<int> arr,int i, vector<int> seq ){
     if(i >= arr.size()){
         cout << "{ ";
@@ -18,7 +23,7 @@ void subSeq(vector<int> arr,int i, vector<int> seq ){
     subSeq(arr,i+1,seq);
     seq.pop_back();
     // seq.erase(seq.end()-1);
-    
+    0
 }
 // print all the subsequene with K Sum
 void KsumSeq(int n, vector<int> arr,vector<int> seq,int sum,int target){

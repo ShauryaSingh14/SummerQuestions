@@ -37,7 +37,7 @@ long long int nthFibonacciII(long long int n){
     long long int nthFibonacci(long long int n){
         int prev2 = 0, prev =1;
         int curr ;
-        for(int i = 2 ; i<= n ;i++){
+        for(int i = 2 ; i <= n ;i++){
             curr = prev + prev2;
             prev2 = prev;
             prev = curr;
