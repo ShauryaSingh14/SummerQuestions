@@ -31,6 +31,7 @@ class Solution {
                     for(auto it : adj[front]){
                         if(!vis[it]){
                             q.push(it);
+                            
                             vis[it] = true;
                         }
                     }

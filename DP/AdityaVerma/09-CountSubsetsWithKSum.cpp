@@ -1,4 +1,6 @@
 #include <bits/stdc++.h> 
+
+//array having non zero/negative values 
 int CountRec(vector<int> arr,int n,int w){
     if( n == 0){
         if(w == 0)

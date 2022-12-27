@@ -14,15 +14,20 @@ class Solution {
                 dfs(it,adj,vis,ans);
             }
         }
+        st.push(node)
     }
     vector<int> dfsOfGraph(int V, vector<int> adj[]) {
         vector<int> dfsRes;
         vector<bool> vis(V,false);
+        stack<int> st;
+
         for(int i =0 ; i<V ;i++){
             if(!vis[i]){
-                dfs(node,adj,vis,dfsRes);
+                dfs(node,adj,vis,dfsRes,st);
             }
         }
+        dfs(st.top) 
+
         return dfsRes;
     }
 };
