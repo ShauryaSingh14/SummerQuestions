@@ -25,6 +25,29 @@ public:
 //     }
 // }
 
+// bool knapSackMemo(vector<int> arr,int n,int w,
+//                  vector<vector<bool>> &ans){
+//     if( n == 0){
+//         if(w == 0)
+//         return true;
+
+//         return false;
+//     }
+
+//     if(ans[n-1][w] != 0)
+//     return ans[n][w];
+    
+//     if(arr[n-1] <= w ){
+//     ans[n][w] = knapSackMemo(arr,n-1,w-arr[n-1],ans) || knapSackMemo(arr,n-1,w,ans);
+//     }
+//     else{
+//     ans[n][w] = knapSackMemo(arr,n-1,w,ans);
+//     }
+    
+//     return ans[n][w];
+// }
+
+
 bool knapSackTopDown(vector<int> arr,int n, int w,
                     vector<vector<bool>> & dp){
     

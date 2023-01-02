@@ -36,6 +36,7 @@ void KsumSeq(int n, vector<int> arr,vector<int> seq,int sum,int target){
         }
         return;
     }
+    
     // Pick Case
     seq.push_back(arr[n]);
     sum+=arr[n];
