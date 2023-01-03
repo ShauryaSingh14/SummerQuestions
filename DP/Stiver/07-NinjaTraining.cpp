@@ -30,7 +30,7 @@ int memoApproch(int day, int last, vector<vector<int>> &points,vector<vector<int
 int ninjaTraining(int n, vector < vector < int > > & points) {
 
   vector < vector < int > > dp(n, vector < int > (4, -1));
-  return memoApproch(n - 1, 3, points, dp);
+  return memoApproch(n - 1, 3, points, dp); // O(N*state)*3 || O(N) + O(N*state)
 }
 
 int main() {
