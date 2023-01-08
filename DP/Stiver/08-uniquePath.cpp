@@ -47,6 +47,13 @@ int spaceOpt(int m,int n){
     return prev[n];
 }
 
+// Math combinatorics problem.
+int uniquePathsMathsApproch(int m, int n) {
+        long ans = 1;
+        for(int i = m+n-2, j = 1; i >= max(m, n); i--, j++) 
+            ans = (ans * i) / j;
+        return ans;
+    }
 
 int uniquePaths(int m, int n) {
 //     vector<vector<int>> dp(m+1,vector<int>(n+1,-1));
