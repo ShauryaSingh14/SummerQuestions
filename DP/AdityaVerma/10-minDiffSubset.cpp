@@ -49,7 +49,57 @@ class Solution{
     
         }
         
-        
+ // Aditya Verma Approch
+  int tabulorApproch( int arr[], int n,int sum){
+      vector<vector<bool>> dp(n+1,vector<bool>(sum+1));
+      // making table of subsetSum 
+      for(int i =0 ; i< n+1 ;i++){
+          for(int j =0 ; j< sum+1 ; j++){
+              if(i == 0 )
+            dp[i][j] = false;
+            if(j == 0)
+            dp[i][j] = true;
+          }
+      }
+      
+      for(int i = 1; i< n+1 ;i++){
+          for(int j = 0 ; j< sum+1;j++){
+              
+            if(arr[i-1] <= j)
+            dp[i][j] = dp[i-1][j-arr[i-1]] || dp[i-1][j];
+            else
+            dp[i][j] = dp[i-1][j];
+          }
+      }
+      
+      vector<int> v;
+      // Extacting the last row of it coz it's impt 
+      for(int i = 0 ; i<= sum/2 ; i++){
+          if(dp[n][i] == 1) 
+            v.push_back(i);
+      }
+      
+      int minDiff = INT_MAX;
+      // we known to find the difference of two subsets 
+      // (Range - 2*S1)
+      // and we want min of all of them then,
+      // min(Range - 2 * S1)
+      for(int i =0 ; i< v.size();i++){
+          minDiff = min(minDiff, sum - 2*v[i]);
+      }
+      
+      return minDiff;
+  }
+	int minDifference(int arr[], int n)  { 
+	    int sum =0 ;
+	    for(int i =0 ; i< n;i++){
+	        sum+=arr[i];
+	    }
+	    
+	    return tabulorApproch(arr,n,sum);
+	} 
+
+
 	int minDifference(int arr[], int n)  { 
 	    // Your code goes here
 	    int s1 =0;
