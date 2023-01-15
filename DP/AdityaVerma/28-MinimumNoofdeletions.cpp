@@ -1,15 +1,24 @@
 //{ Driver Code Starts
-//Initial template for C++
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+int minDeletions(string str, int n);
 
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        cout << minDeletions(s, n) << endl;
 
+    }
+return 0;
+}
 // } Driver Code Ends
-//User function Template for C++
 
-class Solution{
-  public:
 int LCS(int x,int y, string s1, string s2){
     
      vector<vector<int>> dp(x+1,vector<int>(y+1,-1)); 
@@ -35,30 +44,13 @@ int LCS(int x,int y, string s1, string s2){
         }
         return dp[x][y];
     }
-    
-    int longestPalinSubseq(string A) {
-        //code here
-        int n = A.length();
+
+int minDeletions(string A, int n) { 
+
         string B = A;
         reverse(B.begin(),B.end());
         int m = B.length();
         
-        return LCS(n,m,A,B);
-    }
-};
-
-//{ Driver Code Starts.
-
-int32_t main()
-{
-    int t; cin >> t;
-    while (t--)
-    {
-        string s; cin >> s;
-        Solution ob;
-        cout << ob.longestPalinSubseq(s) << endl;
-    }
-}
-// Contributed By: Pranay Bansal
-
-// } Driver Code Ends
+        int clen = LCS(n,m,A,B);
+        return n-clen;
+} 
